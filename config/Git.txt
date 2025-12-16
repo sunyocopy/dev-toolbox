@@ -1,0 +1,127 @@
+Git
+clear
+
+
+--------------------------------------------------------------
+git log <ชื่อไฟล์> //ใช้ดูประวัติผู้แก้ไขล่าสุด
+git blame <ชื่อไฟล์> //ใช้ดูประวัติผู้แก้ไขตั้งแต่สร้างไฟล์
+-----ตั้งค่า---------------------------------------------------------------------------------------------------------------
+git config --global
+git config user.name "xxx"
+git config user.email "xxx"
+git config --list //ตรวจสอบว่าตั้งค่าชื่อemailเรียบร้อยหรือยังหรือดูที่ตั้งค่าไว้
+user.email=sunyo123456789@hotmail.com
+user.name=sunyo123456789
+-------การcolneและเช็คurlที่จัดเก็บ-----------------------------------------------------------
+git clone xxx
+git remote set-url origin xxx
+git remote -v //เช็คurlที่จะpush
+
+------------------------------------------------------------------
+Ctrl+Shift P เลิอก GIT:Close Repository  //สำหรับปิดgitในvscode
+
+-----tagไฟล์------------------------------------------------------------
+git init
+git status
+
+------นำไฟล์เตรียมขึ้นgithub--------------------------------------------------
+git status
+git add
+git commit -m "xxx"
+หรือ git commit -am "xxx"  ///รวบที่เดียวทั้งgit add และ git commit
+git log --oneline
+git diff
+git branch 
+git remote -v //เช็คurlที่จะpush
+ 
+------นำไฟล์ที่พึ่งสร้างขึ้นgithubครั้งแรก-------------------------------------------------
+git remote add origin xxx
+git branch -m  main
+git push -u origin main  //ใช้กรณีเอาขึ้นgithubครั้งแรก
+
+-------------*****เมื่อมีการแก้ไขไฟล์จากเครื่องเรา******-----------------------------------------------------
+git status
+git remote -v //เช็คurlที่จะpush
+git add .
+git commit -m "xxx"
+git remote -v //เช็คurlที่จะpush
+git push origin main //กรณีที่เราไม่ได้เอาขึ้นgithubครั้งแรก
+
+------------------------------------------------------
+git status
+git clone xxx         ตัวอย่าง //git clone https://github.com/sunyocopy/sunyo-puoject.git -b main
+
+-----**********เมื่อมีการแก้ไขจากผู้อื่นแล้วต้องการupdateที่เครื่องเรา********-------------------------------------------------
+git remote -v //เช็คurlที่จะpush
+git status
+git pull origin main 
+หรือ git pull กรณีสร้าง branch
+git status
+
+
+-------------git branchแตกกิ่ง ----------------------------------------
+git status
+git log --oneline
+git branch  //แสดงชื่อ branch
+git checkout -b <ตั้งชื่อbranch>(ห้ามเว้นวรรค)  
+git add .
+git commit -m "xxx"
+git remote -v //เช็คurlที่จะpush
+git push origin main
+
+
+
+----------การสลับกิ่ง -----------------------------------------
+git status
+git log --oneline
+git checkout <ชื่อbranchที่้ต้องการ>
+git checkout main
+
+หรือ git switch
+
+-------------------รวมกิ่ง--------------------------------
+git status
+git branch
+git log --oneline
+git checkout main //เข้ามาที่branch mainก่อน
+git merge <ชื่อ branchที่ต้องการรวม>
+
+
+---------ลบกิ่งรวมเสร็จแล้วก็ลบ-------------------------------------------------------
+git status
+git log --oneline
+git branch -d <ชื่อbranchที่้ต้องการ>
+
+
+-------------การกู้คืนเวอร์ชั่นของไฟล์-----------------------------------------------
+git status
+git log
+
+-----------------------------------------------------------------------------------------
+git status
+touch
+git reset --option
+git stash
+
+git rm -r --cached. => ลบทั้งหมด
+git rm --cached <file_name> => ระบุไฟล์
+
+
+------------------------------------------------------------------
+https://github.com/sunyocopy/sunyo-puoject.git
+
+git clone https://github.com/sunyocopy/sunyo-puoject.git -b main
+
+--------------------------------------
+echo "# Calculator" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sunyocopy/Calculator.git
+git push -u origin main
+--------------------------------------------------------------------
+git remote add origin https://github.com/sunyocopy/Calculator.git
+git branch -M main
+git push -u origin main
+-----------------------
